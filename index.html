@@ -206,9 +206,6 @@
 .slider {
   width: 100%;
   height: 220px;
-overflow-x: a.slider {
-  width: 100%;
-  height: 220px;
   overflow-x: auto;
   overflow-y: hidden;
   border-radius: 16px;
@@ -218,16 +215,16 @@ overflow-x: a.slider {
 
 .slides {
   display: flex;
-  width: max-content;
-  gap: 10px;
+  width: 100%;
+  gap: 0;
 }
 
 .slides img {
+  flex: 0 0 100%;
   width: 100%;
-  min-width: 100%;
   height: 220px;
   object-fit: cover;
-  scroll-snap-align: center;
+  scroll-snap-align: start;
   border-radius: 16px;
 }
 
