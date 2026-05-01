@@ -333,14 +333,23 @@ function addPhotos(input){
   });input.value='';
 }
 function addVideos(input){
-  const list=document.getElementById('videoList');
-  Array.from(input.files).forEach(file=>{
-    const url=URL.createObjectURL(file);
-    const slot=document.createElement('div');
-    slot.style.cssText='border-radius:12px;border:1.5px solid #ffb3d1;background:rgba(255,255,255,.6);padding:10px;margin-bottom:2px';
-    slot.innerHTML=`<video controls style="width:100%;border-radius:10px;display:block" src="${url}"></video><div style="font-size:11px;color:#e75480;margin-top:6px;padding:0 2px">${file.name}</div>`;
-    list.insertBefore(slot,list.lastElementChild);
-  });input.value='';
+  const list = document.getElementById('videoList');
+
+  Array.from(input.files).forEach(file => {
+    const url = URL.createObjectURL(file);
+
+    const video = document.createElement('video');
+    video.src = url;
+    video.controls = true;
+    video.style.width = "100%";
+    video.style.borderRadius = "12px";
+    video.style.marginBottom = "10px";
+
+    list.appendChild(video);
+  });
+
+  input.value = '';
+}
 }
 function launchConfetti(){
   const c=document.getElementById('bdConfetti');const ctx=c.getContext('2d');c.width=c.offsetWidth||800;
