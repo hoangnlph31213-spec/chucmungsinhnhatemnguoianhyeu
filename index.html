@@ -236,7 +236,7 @@
 <iframe 
   width="100%" 
   height="300"
-  src=""https://www.youtube.com/embed/AQwvWW3CbkU?autoplay=1&mute=1"
+  src="https://www.youtube.com/embed/AQwvWW3CbkU?autoplay=1&mute=1"
   frameborder="0"
   allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
   allowfullscreen>
@@ -347,9 +347,10 @@ function launchConfetti(){
   let frame=0;
   (function draw(){ctx.clearRect(0,0,c.width,200);pieces.forEach(p=>{ctx.save();ctx.translate(p.x,p.y);ctx.rotate(p.angle);ctx.fillStyle=p.color;ctx.fillRect(-p.r/2,-p.r/2,p.r,p.r*1.5);ctx.restore();p.y+=p.speed;p.x+=p.dx;p.angle+=p.spin});frame++;if(frame<150)requestAnimationFrame(draw);else ctx.clearRect(0,0,c.width,200)})();
 }
-</script>
-document.addEventListener('click', () => {
+  document.addEventListener('click', () => {
   document.getElementById('ytPlayer').contentWindow.postMessage(
     JSON.stringify({ event: 'command', func: 'unMute', args: [] }), '*'
   );
 }, { once: true });
+</script>
+
